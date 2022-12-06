@@ -16,9 +16,7 @@ local awful = require("awful")
 -- ===================================================================
 
 -- Load theme.txt file
-local file = io.open(gears.filesystem.get_configuration_dir() .. "/theme.txt", "r")
-local theme = file:read("*all")
-file:close()
+local theme = "gruvbox" -- Change this 
 local theme_dir = "themes." .. theme .. ".theme"
 local theme_config_dir = gears.filesystem.get_configuration_dir() .. "/themes/" .. theme .. "/config/"
 

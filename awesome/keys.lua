@@ -142,12 +142,6 @@ keys.globalkeys = gears.table.join(
       end,
       {description = "Open a browser", group = "Firefox"}
    ),
-   -- Spawn theme selector
-   awful.key({modkey}, "t", function()
-      -- emit signal to show the theme selector
-      awful.spawn(gears.filesystem.get_configuration_dir() .. "/theme_selector/theme-selector")
-   end,
-   {description = "toggle theme selector", group = "hotkeys"}),
    -- Spawn terminal
    awful.key({modkey}, "Return",
       function()

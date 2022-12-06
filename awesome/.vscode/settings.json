@@ -1,0 +1,7 @@
+{
+    "Lua.diagnostics.globals": [
+        "exit_screen",
+        "global",
+        "require_theme"
+    ]
+}

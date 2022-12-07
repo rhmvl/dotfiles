@@ -3,14 +3,13 @@
 ## **Table of contents**
 - [My personal dot files](#my-personal-dot-files)
   - [**Table of contents**](#table-of-contents)
-    - [**Thanks for dropping by!**](#thanks-for-dropping-by)
 - [Setup](#setup)
   - [Window Manager](#window-manager)
 - [AwesomeWM](#awesomewm)
   - [File Structure](#file-structure)
 - [Keybinds](#keybinds)
 
-### **Thanks for dropping by!**
+**Thanks for dropping by!**
 
 Here are some details about my setup:
 
@@ -92,3 +91,16 @@ After setting up my AwesomeWM configuration, inside ~/.config/awesome you will f
    
    Same with the `components` directory. but more specific
 # Keybinds
+|Keybin|Action|
+|------|------|
+|`super + enter`|Spawn terminal|
+|`super + d`|Launch rofi|
+|`super + q`|Close client|
+|`super + [1-0]`|View tag AKA change workspace|
+|`super + shift + [1-0]`|Move focused client to tag|
+|`super + [arrow keys]`|Change focus by direction|
+|`super + [hjkl]`|^|
+|`super + control + [arrow keys]`|Resize client|
+|`super + control + [hjkl]`|^|
+
+*...And many many more*.

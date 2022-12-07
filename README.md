@@ -7,7 +7,7 @@
   - [Window Manager](#window-manager)
 - [AwesomeWM](#awesomewm)
   - [File Structure](#file-structure)
-- [Keybinds](#keybinds)
+  - [Keybinds](#keybinds)
 
 **Thanks for dropping by!**
 
@@ -90,7 +90,7 @@ After setting up my AwesomeWM configuration, inside ~/.config/awesome you will f
 - `widgets` directory
    
    Same with the `components` directory. but more specific
-# Keybinds
+## Keybinds
 |Keybin|Action|
 |------|------|
 |`super + enter`|Spawn terminal|

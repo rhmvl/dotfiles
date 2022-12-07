@@ -81,9 +81,9 @@ After setting up my AwesomeWM configuration, inside ~/.config/awesome you will f
     Basic folder for things like Exit Screen, etc.
 - `themes` directory
     
-    This directory contains a theme(s)
+    This directory contains a themes you can use
     
-    [Learn how to create your own theme](THEMES.md)
+    To change the theme go to `rc.lua` and change the `theme` to avaiable theme
 - `wallpaper` directory
   
     This directory contains a wallpaper

@@ -4,26 +4,27 @@
 - [My personal dot files](#my-personal-dot-files)
   - [**Table of contents**](#table-of-contents)
 - [Setup](#setup)
-  - [Window Manager](#window-manager)
 - [AwesomeWM](#awesomewm)
   - [File Structure](#file-structure)
   - [Keybinds](#keybinds)
 
 **Thanks for dropping by!**
 
+![](screenshots/gruvbox.png)
+
 Here are some details about my setup:
 
- - **WM**: AwesomeWM
+ - **WM**: [AwesomeWM](https://github.com/awesomeWM/awesome/)
  - **OS**: Arch Linux
- - **Shell**: Starship
- - **Terminal**: Alacritty
- - **Editor**: Neovim
- - **File  Manager**: PCManFM
- - **Launcher**: Rofi
+ - **Shell**: [Starship](https://starship.rs//)
+ - **Terminal**: [Alacritty](https://github.com/alacritty/alacritty)
+ - **Editor**: [Neovim](https://neovim.io)
+ - **Lock Screen**: [i3lock-fancy](https://github.com/meskarune/i3lock-fancy)
+ - **File  Manager**: [PCManFM](https://github.com/lxde/pcmanfm)
+ - **Launcher**: [rofi](https://github.com/davatorium/rofi/)
  - **Browser**: Firefox
 
 # Setup
-## Window Manager
 1. Install the git version of AwesomeWM.
 
     **Arch users** can use the [awesome-git AUR package](https://aur.archlinux.org/packages/awesome-git/).
@@ -34,12 +35,12 @@ Here are some details about my setup:
 2. Install dependencies
     + Ubuntu 18.04 or newer (and all Ubuntu-based distributions)
         ```Shell
-        sudo apt install rofi mpc feh pulseaudio alsa-tools scrot redshift
+        sudo apt install rofi mpc feh pulseaudio alsa-utils scrot redshift i3lock-fancy
         ```
     + **Arch Linux** (and all Arch-based distributions)
         *Assuming your AUR helper is `yay`*
         ```Shell
-        yay -S rofi mpd mpc feh pulseaudio alsa-tools scrot redshift
+        yay -S rofi mpd mpc feh pulseaudio alsa-utils scrot redshift i3lock-fancy-git
         ```
 3. Enable services
     ``` Shell
@@ -93,14 +94,15 @@ After setting up my AwesomeWM configuration, inside ~/.config/awesome you will f
 ## Keybinds
 |Keybin|Action|
 |------|------|
-|`super + enter`|Spawn terminal|
-|`super + d`|Launch rofi|
-|`super + q`|Close client|
-|`super + [1-0]`|View tag AKA change workspace|
-|`super + shift + [1-0]`|Move focused client to tag|
-|`super + [arrow keys]`|Change focus by direction|
-|`super + [hjkl]`|^|
-|`super + control + [arrow keys]`|Resize client|
-|`super + control + [hjkl]`|^|
+|`Super + Enter`|Spawn terminal|
+|`Super + d`|Launch rofi|
+|`Super + Esc`|Launch exit screen|
+|`Super + q`|Close client|
+|`Super + [1-0]`|View tag AKA change workspace|
+|`Super + Shift + [1-0]`|Move focused client to tag|
+|`Super + [arrow keys]`|Change focus by direction|
+|`Super + [hjkl]`|^|
+|`Super + Control + [arrow keys]`|Resize client|
+|`Super + Control + [hjkl]`|^|
 
 *...And many many more*.

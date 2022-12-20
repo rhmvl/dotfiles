@@ -36,7 +36,6 @@ augroup numbertoggle
     autocmd BufEnter,FocusLost,InsertEnter      * set norelativenumber
 augroup end
 
-
 " Make comments italic
 highlight comment cterm=italic gui=italic
 
@@ -47,11 +46,13 @@ highlight comment cterm=italic gui=italic
 
 
 call plug#begin()
-    Plug 'morhetz/gruvbox' " colorscheme
+    Plug 'folke/tokyonight.nvim', { 'branch': 'main' } " colorscheme
     Plug 'bling/vim-airline' " bottom status bar
     Plug 'Yggdroot/indentLine' " line indentation visualization
     Plug 'scrooloose/nerdtree' " side directory viewer
 call plug#end()
+
+" set colorscheme
 
 " --------- bling/vim-airline settings -------------
 " always show statusbar

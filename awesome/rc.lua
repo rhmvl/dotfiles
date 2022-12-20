@@ -16,17 +16,16 @@ local awful = require("awful")
 -- ===================================================================
 
 -- Load theme.txt file
-local theme = "gruvbox" -- Change this 
-local theme_dir = "themes." .. theme .. ".theme"
-local theme_config_dir = gears.filesystem.get_configuration_dir() .. "/themes/" .. theme .. "/config/"
+local theme_dir = "themes.night"
+local theme_config_dir = gears.filesystem.get_configuration_dir() .. "/config/"
 
 -- define default apps (global variable so other components can access it)
 apps = {
    browser = "firefox",
-   network_manager = "", -- recommended: nm-connection-editor
+   network_manager = "nmcli", -- recommended: nm-connection-editor
    power_manager = "", -- recommended: xfce4-power-manager
    terminal = "alacritty",
-   launcher = "rofi -normal-window -modi drun -show drun",
+   launcher = "rofi -normal-window -modi drun -show drun -theme " .. theme_config_dir .. "rofi.rasi",
    lock = "i3lock-fancy",
    screenshot = "scrot -e 'mv $f ~/Pictures/ 2>/dev/null'",
    filebrowser = "pcmanfm"
@@ -51,13 +50,9 @@ local run_on_start_up = {
 -- Initialization
 -- ===================================================================
 
-function require_theme (name)
-   return require("themes." .. theme .. "." .. name)
-end
-
 -- Import theme
 local beautiful = require("beautiful")
-beautiful.init(gears.filesystem.get_configuration_dir() .. "/themes/" .. theme .. "/theme.lua")
+beautiful.init(gears.filesystem.get_configuration_dir() .. "/themes/night.lua")
 
 
 -- Run all the apps listed in run_on_start_up
@@ -72,8 +67,7 @@ for _, app in ipairs(run_on_start_up) do
 end
 
 -- Initialize theme
-local selected_theme = require(theme_dir)
-selected_theme.initialize()
+require("themes.night").initialize()
 
 -- Import notification appearance
 require("components.notifications")

@@ -1,20 +1,22 @@
 # My personal dot files
-**Thanks for dropping by!**
+![Night Theme](Screenshots/night.png)
+## **Thanks for dropping by!**
 
 Here are some details about my setup:
 
  - **WM**: [AwesomeWM](https://github.com/awesomeWM/awesome/)
  - **OS**: Arch Linux
- - **Shell**: [Starship](https://starship.rs//)
+ - **Shell**: [Starship](https://starship.rs/)
  - **Terminal**: [Alacritty](https://github.com/alacritty/alacritty)
  - **Editor**: [Neovim](https://neovim.io)
  - **Lock Screen**: [i3lock-fancy](https://github.com/meskarune/i3lock-fancy)
  - **File  Manager**: [PCManFM](https://github.com/lxde/pcmanfm)
  - **Launcher**: [rofi](https://github.com/davatorium/rofi/)
  - **Browser**: Firefox
-
 # Installing
 ```shell
+# Clone the repository
+$ git clone https://github.com/xgalatic/dotfiles
 $ cd dotfiles
 $ sudo chmod +x ./install
 $ ./install
@@ -22,7 +24,7 @@ $ ./install
 
 One liner
 ```shell
-$ cd dotfiles && sudo chmod +x ./install && ./install
+$ git clone https://github.com/xgalatic/dotfiles && cd dotfiles && sudo chmod +x ./install && ./install
 ```
 
 # Keybinds

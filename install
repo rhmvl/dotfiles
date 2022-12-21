@@ -26,21 +26,21 @@ for cmd in "${commands[@]}"; do
     echo -e "$p $cmd successfully installed."
 done
 
-echo -e "$p Installing alsa-utils."
 if ! command -v amixer &> /dev/null; then
+    echo -e "$p Installing alsa-utils"
     $aur -S --noconfirm alsa-utils
 fi
 echo -e "$p alsa-utils successfully installed."
 
-echo -e "$p Installing i3lock-fancy."
 if ! command -v i3lock-fancy &> /dev/null; then
+    echo -e "$p Installing i3lock-fancy-git"
     $aur -S --noconfirm i3lock-fancy-git
 fi
 echo -e "$p i3lock-fancy successfully installed."
 
-echo "$q Do you want to enable the system services"
+echo -e "$q Do you want to enable the system services"
 select o in "Yes" "No"; do
-    case o in
+    case $o in
         "Yes")
             systemctl --user enable mpd.service
             systemctl --user start mpd.service
@@ -52,18 +52,18 @@ select o in "Yes" "No"; do
     esac
 done
 
-echo "$p Installing AwesomeWM config file"
+echo -e "$p Installing AwesomeWM config file"
 echo -en "$q Do you want to create a backup for your awesome config (y/N)?"
 read b
 case $b in
     "Yy")
-        echo "$p Creating a backup"
+        echo -e "$p Creating a backup"
         [ -e ~/.config/awesome ] && mv ~/.config/awesome ~/.config/awesome-backup-"$(date +%Y.%m.%d-%H.%M.%S)"
-        echo "$p Successfully create a backup"
+        echo -e "$p Successfully create a backup"
         break;;
     "Nn")
         rm -rf ~/.config/awesome
         break;;
 esac
 cp -r awesome ~/.config/awesome
-echo "$p AwesomeWM config successfully installed"
+echo -e "$p AwesomeWM config successfully installed"

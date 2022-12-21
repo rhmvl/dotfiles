@@ -1,15 +1,3 @@
---      ███████╗ ██████╗ ██╗     ██████╗ ███████╗██████╗
---      ██╔════╝██╔═══██╗██║     ██╔══██╗██╔════╝██╔══██╗
---      █████╗  ██║   ██║██║     ██║  ██║█████╗  ██████╔╝
---      ██╔══╝  ██║   ██║██║     ██║  ██║██╔══╝  ██╔══██╗
---      ██║     ╚██████╔╝███████╗██████╔╝███████╗██║  ██║
---      ╚═╝      ╚═════╝ ╚══════╝╚═════╝ ╚══════╝╚═╝  ╚═╝
-
--- ===================================================================
--- Initialization
--- ===================================================================
-
-
 local awful = require("awful")
 local wibox = require("wibox")
 local clickable_container = require("widgets.clickable-container")
@@ -22,12 +10,6 @@ local PATH_TO_ICONS = HOME_DIR .. "/.config/awesome/icons/folders/"
 -- define module table
 local folder = {}
 
-
--- ===================================================================
--- Helper Functions
--- ===================================================================
-
-
 -- split a string into a list based on a deliminator
 local function split_string(inputstr, delim)
    if delim == nil then
@@ -39,12 +21,6 @@ local function split_string(inputstr, delim)
    end
    return t
 end
-
-
--- ===================================================================
--- Functionality
--- ===================================================================
-
 
 function folder.create(directory)
    local docu_widget = wibox.widget {

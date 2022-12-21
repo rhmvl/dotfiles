@@ -1,15 +1,3 @@
---      ███████╗██╗  ██╗██╗████████╗    ███████╗ ██████╗██████╗ ███████╗███████╗███╗   ██╗
---      ██╔════╝╚██╗██╔╝██║╚══██╔══╝    ██╔════╝██╔════╝██╔══██╗██╔════╝██╔════╝████╗  ██║
---      █████╗   ╚███╔╝ ██║   ██║       ███████╗██║     ██████╔╝█████╗  █████╗  ██╔██╗ ██║
---      ██╔══╝   ██╔██╗ ██║   ██║       ╚════██║██║     ██╔══██╗██╔══╝  ██╔══╝  ██║╚██╗██║
---      ███████╗██╔╝ ██╗██║   ██║       ███████║╚██████╗██║  ██║███████╗███████╗██║ ╚████║
---      ╚══════╝╚═╝  ╚═╝╚═╝   ╚═╝       ╚══════╝ ╚═════╝╚═╝  ╚═╝╚══════╝╚══════╝╚═╝  ╚═══╝
-
--- ===================================================================
--- Initialization
--- ===================================================================
-
-
 local awful = require("awful")
 local gears = require("gears")
 local wibox = require("wibox")
@@ -22,14 +10,9 @@ local ICON_DIR = gears.filesystem.get_configuration_dir() .. "/icons/exit-screen
 -- define module table
 local exit_screen = {}
 
-
--- ===================================================================
--- Appearance
--- ===================================================================
-
 local icon_size = dpi(90)
 
-local build_button = function(icon, title)
+local build_button = function(icon, title, func)
    local button = wibox.widget {
       wibox.widget {
          wibox.widget {
@@ -53,6 +36,7 @@ local build_button = function(icon, title)
       mode = "inside",
       timer_function = function () return title end,
    })
+   button:connect_signal("button::release", func)
 
    return wibox.widget {
       button,
@@ -62,21 +46,11 @@ local build_button = function(icon, title)
    }
 end
 
-
--- ===================================================================
--- Functionality
--- ===================================================================
-
-
 local exit_screen_grabber
 
 local function suspend_command()
    exit_screen.hide()
    awful.spawn.with_shell(apps.lock .. " & systemctl suspend")
-end
-
-local function exit_command()
-   awesome.quit()
 end
 
 local function lock_command()
@@ -94,35 +68,15 @@ local function reboot_command()
    awful.keygrabber.stop(exit_screen_grabber)
 end
 
-local poweroff = build_button(ICON_DIR .. "power.png", "Shutdown")
-poweroff:connect_signal(
-   "button::release",
-   poweroff_command
-)
+local poweroff = build_button(ICON_DIR .. "power.png", "Shutdown", poweroff_command)
 
-local reboot = build_button(ICON_DIR .. "restart.png", "Restart")
-reboot:connect_signal(
-   "button::release",
-   reboot_command
-)
+local reboot = build_button(ICON_DIR .. "restart.png", "Restart", reboot_command)
 
-local suspend = build_button(ICON_DIR .. "sleep.png", "Sleep")
-suspend:connect_signal(
-   "button::release",
-   suspend_command
-)
+local suspend = build_button(ICON_DIR .. "sleep.png", "Sleep", suspend_command)
 
-local exit = build_button(ICON_DIR .. "logout.png", "Logout")
-exit:connect_signal(
-   "button::release",
-   exit_command
-)
+local exit = build_button(ICON_DIR .. "logout.png", "Logout", awesome.quit)
 
-local lock = build_button(ICON_DIR .. "lock.png", "Lock")
-lock:connect_signal(
-   "button::release",
-   lock_command
-)
+local lock = build_button(ICON_DIR .. "lock.png", "Lock", lock_command)
 
 -- subscribe to the show_exit_screen signal
 -- show the exit screen when signal is broadcasted
@@ -158,11 +112,6 @@ function exit_screen.hide()
    awful.keygrabber.stop(exit_screen_grabber)
    exit_screen.widget.visible = false
 end
-
-
--- ===================================================================
--- Create Widget
--- ===================================================================
 
 local screen_geometry = awful.screen.focused().geometry
 

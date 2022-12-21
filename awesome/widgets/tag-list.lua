@@ -1,40 +1,15 @@
---      ████████╗ █████╗  ██████╗     ██╗     ██╗███████╗████████╗
---      ╚══██╔══╝██╔══██╗██╔════╝     ██║     ██║██╔════╝╚══██╔══╝
---         ██║   ███████║██║  ███╗    ██║     ██║███████╗   ██║
---         ██║   ██╔══██║██║   ██║    ██║     ██║╚════██║   ██║
---         ██║   ██║  ██║╚██████╔╝    ███████╗██║███████║   ██║
---         ╚═╝   ╚═╝  ╚═╝ ╚═════╝     ╚══════╝╚═╝╚══════╝   ╚═╝
-
--- ===================================================================
--- Initialization
--- ===================================================================
-
-
 local awful = require('awful')
 local wibox = require('wibox')
 local dpi = require('beautiful').xresources.apply_dpi
 local capi = {button = button}
 local clickable_container = require('widgets.clickable-container')
 local modkey = require('keys').modkey
-
--- define module table
 local tag_list = {}
 
-
--- ===================================================================
--- Widget Creation Functions
--- ===================================================================
-
-
--- Create buttons
 local function create_buttons(buttons, object)
    if buttons then
       local btns = {}
       for _, b in ipairs(buttons) do
-         -- Create a proxy button object: it will receive the real
-         -- press and release events, and will propagate them to the
-         -- button object the user provided, but with the object as
-         -- argument.
          local btn = capi.button {modifiers = b.modifiers, button = b.button}
          btn:connect_signal('press',
             function()
@@ -67,11 +42,11 @@ local function list_update(w, buttons, label, data, objects)
          tbm = cache.tbm
          ibm = cache.ibm
       else
-         local icondpi = 10
+         local icondpi = 5
          ib = wibox.widget.imagebox()
          tb = wibox.widget.textbox()
          bgb = wibox.container.background()
-         tbm = wibox.container.margin(tb, dpi(4), dpi(16))
+         tbm = wibox.container.margin(tb, dpi(7), dpi(16))
          ibm = wibox.container.margin(ib, dpi(icondpi), dpi(icondpi), dpi(icondpi), dpi(icondpi))
          l = wibox.layout.fixed.horizontal()
          bg_clickable = clickable_container()
@@ -160,8 +135,7 @@ tag_list.create = function(s)
          )
       ),
       {},
-      list_update,
-      wibox.layout.fixed.vertical()
+      list_update
    )
 end
 

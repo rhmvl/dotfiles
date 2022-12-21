@@ -1,31 +1,15 @@
---       █████╗ ██╗    ██╗███████╗███████╗ ██████╗ ███╗   ███╗███████╗
---      ██╔══██╗██║    ██║██╔════╝██╔════╝██╔═══██╗████╗ ████║██╔════╝
---      ███████║██║ █╗ ██║█████╗  ███████╗██║   ██║██╔████╔██║█████╗
---      ██╔══██║██║███╗██║██╔══╝  ╚════██║██║   ██║██║╚██╔╝██║██╔══╝
---      ██║  ██║╚███╔███╔╝███████╗███████║╚██████╔╝██║ ╚═╝ ██║███████╗
---      ╚═╝  ╚═╝ ╚══╝╚══╝ ╚══════╝╚══════╝ ╚═════╝ ╚═╝     ╚═╝╚══════╝
-
-
--- Standard awesome libraries
 local gears = require("gears")
 local awful = require("awful")
 
-
--- ===================================================================
--- User Configuration
--- ===================================================================
-
--- Load theme.txt file
-local theme_dir = "themes.night"
 local theme_config_dir = gears.filesystem.get_configuration_dir() .. "/config/"
 
 -- define default apps (global variable so other components can access it)
 apps = {
    browser = "firefox",
-   network_manager = "nmcli", -- recommended: nm-connection-editor
+   network_manager = "", -- recommended: nm-connection-editor
    power_manager = "", -- recommended: xfce4-power-manager
    terminal = "alacritty",
-   launcher = "rofi -normal-window -modi drun -show drun -theme " .. theme_config_dir .. "rofi.rasi",
+   launcher = "rofi -modi drun -show drun -theme " .. theme_config_dir .. "rofi.rasi",
    lock = "i3lock-fancy",
    screenshot = "scrot -e 'mv $f ~/Pictures/ 2>/dev/null'",
    filebrowser = "pcmanfm"
@@ -44,11 +28,6 @@ local run_on_start_up = {
    "redshift",
    "unclutter"
 }
-
-
--- ===================================================================
--- Initialization
--- ===================================================================
 
 -- Import theme
 local beautiful = require("beautiful")
@@ -104,11 +83,6 @@ client.connect_signal("manage", function (c)
 end)
 
 
--- ===================================================================
--- Client Focusing
--- ===================================================================
-
-
 -- Autofocus a new client when previously focused one is closed
 require("awful.autofocus")
 
@@ -117,18 +91,8 @@ client.connect_signal("mouse::enter", function(c)
    c:emit_signal("request::activate", "mouse_enter", {raise = false})
 end)
 
--- ===================================================================
--- Screen Change Functions (ie multi monitor)
--- ===================================================================
-
-
 -- Reload config when screen geometry changes
 screen.connect_signal("property::geometry", awesome.restart)
-
-
--- ===================================================================
--- Garbage collection (allows for lower memory consumption)
--- ===================================================================
 
 
 collectgarbage("setpause", 110)

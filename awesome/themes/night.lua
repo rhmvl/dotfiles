@@ -1,25 +1,9 @@
---      ████████╗██╗  ██╗███████╗███╗   ███╗███████╗
---      ╚══██╔══╝██║  ██║██╔════╝████╗ ████║██╔════╝
---         ██║   ███████║█████╗  ██╔████╔██║█████╗
---         ██║   ██╔══██║██╔══╝  ██║╚██╔╝██║██╔══╝
---         ██║   ██║  ██║███████╗██║ ╚═╝ ██║███████╗
---         ╚═╝   ╚═╝  ╚═╝╚══════╝╚═╝     ╚═╝╚══════╝
-
--- ===================================================================
--- Initialization
--- ===================================================================
-
 local xresources = require("beautiful.xresources")
 local awful = require('awful')
 local gears = require('gears')
 local dpi = xresources.apply_dpi
 
--- define module table
 local theme = {}
-
--- ===================================================================
--- Theme Variables
--- ===================================================================
 theme.name = "night"
 
 theme.background = "#061115"
@@ -47,6 +31,7 @@ theme.transparent = "#00000000"
 -- Font
 theme.font = "SF Pro Text 9"
 theme.title_font = "SF Pro Display Medium 10"
+theme.title_font_bold = "SF Pro Display Bold 10"
 
 theme.bg_normal     = "#061115"
 theme.bg_subtle     = "#0a171c"
@@ -122,7 +107,6 @@ theme.initialize = function()
     require("components.wallpaper")
 
     -- Import panels
-    local left_panel = require("components.left-panel")
     local top_panel = require("components.top-panel")
 
     -- Set up each screen (add tags & panels)
@@ -138,10 +122,6 @@ theme.initialize = function()
           })
        end
 
-       -- Only add the left panel on the primary screen
-       if s.index == 1 then
-          left_panel.create(s)
-       end
        -- Add the top panel to every screen
        top_panel.create(s)
     end)

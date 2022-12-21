@@ -1,48 +1,11 @@
---      ████████╗ ██████╗ ██████╗     ██████╗  █████╗ ███╗   ██╗███████╗██╗
---      ╚══██╔══╝██╔═══██╗██╔══██╗    ██╔══██╗██╔══██╗████╗  ██║██╔════╝██║
---         ██║   ██║   ██║██████╔╝    ██████╔╝███████║██╔██╗ ██║█████╗  ██║
---         ██║   ██║   ██║██╔═══╝     ██╔═══╝ ██╔══██║██║╚██╗██║██╔══╝  ██║
---         ██║   ╚██████╔╝██║         ██║     ██║  ██║██║ ╚████║███████╗███████╗
---         ╚═╝    ╚═════╝ ╚═╝         ╚═╝     ╚═╝  ╚═╝╚═╝  ╚═══╝╚══════╝╚══════╝
-
--- ===================================================================
--- Initialization
--- ===================================================================
-
-
+-- Libraries
 local awful = require("awful")
 local beautiful = require("beautiful")
 local wibox = require("wibox")
 local gears = require("gears")
 local dpi = beautiful.xresources.apply_dpi
-
--- import widgets
-local task_list = require("widgets.task-list")
-
--- define module table
+local tag_list = require("widgets.tag-list")
 local top_panel = {}
-
--- ===================================================================
--- Launcher
--- ===================================================================
-local main_menu = awful.menu({
-  items = {
-    {"Restart Awesome", awesome.restart},
-    {"Open Terminal", apps.terminal},
-    {"Quit >", apps.launcher},
-  }
-})
-
-local launcher = awful.widget.launcher({
-  image = beautiful.awesome_icon,
-  menu = main_menu
-})
-
-
--- ===================================================================
--- Bar Creation
--- ===================================================================
-
 
 top_panel.create = function(s)
    local panel = awful.wibar({
@@ -56,7 +19,7 @@ top_panel.create = function(s)
    panel:setup {
       expand = "none",
       layout = wibox.layout.align.horizontal,
-      task_list.create(s),
+      tag_list.create(s),
       require("widgets.calendar").create(s),
       {
          layout = wibox.layout.fixed.horizontal,
@@ -67,12 +30,6 @@ top_panel.create = function(s)
          wibox.layout.margin(require("widgets.layout-box"), dpi(5), dpi(5), dpi(5), dpi(5))
       }
    }
-
-
-   -- ===================================================================
-   -- Functionality
-   -- ===================================================================
-
 
    -- hide panel when client is fullscreen
    local function change_panel_visibility(client)

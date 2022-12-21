@@ -1,16 +1,3 @@
---       ██████╗ █████╗ ██╗     ███████╗███╗   ██╗██████╗  █████╗ ██████╗
---      ██╔════╝██╔══██╗██║     ██╔════╝████╗  ██║██╔══██╗██╔══██╗██╔══██╗
---      ██║     ███████║██║     █████╗  ██╔██╗ ██║██║  ██║███████║██████╔╝
---      ██║     ██╔══██║██║     ██╔══╝  ██║╚██╗██║██║  ██║██╔══██║██╔══██╗
---      ╚██████╗██║  ██║███████╗███████╗██║ ╚████║██████╔╝██║  ██║██║  ██║
---       ╚═════╝╚═╝  ╚═╝╚══════╝╚══════╝╚═╝  ╚═══╝╚═════╝ ╚═╝  ╚═╝╚═╝  ╚═╝
-
-
--- ===================================================================
--- Initialization
--- ===================================================================
-
-
 local awful = require("awful")
 local gears = require("gears")
 local wibox = require("wibox")
@@ -18,12 +5,6 @@ local beautiful = require("beautiful")
 local dpi = beautiful.xresources.apply_dpi
 
 local calendar = {}
-
-
--- ===================================================================
--- Create Widget
--- ===================================================================
-
 
 calendar.create = function(screen)
    -- Clock / Calendar 12h format
@@ -44,7 +25,7 @@ calendar.create = function(screen)
    })
 
    local cal_shape = function(cr, width, height)
-      gears.shape.partially_rounded_rect(cr, width, height, false, false, true, true, 12)
+      gears.shape.partially_rounded_rect(cr, width, height, true, true, true, true, 12)
    end
 
    -- Calendar Widget
@@ -52,14 +33,14 @@ calendar.create = function(screen)
       screen = screen,
       start_sunday = true,
       spacing = 10,
-      font = beautiful.title_font,
+      font = beautiful.title_font_bold,
       long_weekdays = true,
-      margin = 0, -- 10
+      margin = 10, -- 10
       style_month = {border_width = 0, padding = 12, shape = cal_shape, padding = 25},
-      style_header = {border_width = 0, bg_color = "#00000000"},
-      style_weekday = {border_width = 0, bg_color = "#00000000"},
-      style_normal = {border_width = 0, bg_color = "#00000000"},
-      style_focus = {border_width = 0, bg_color = "#8AB4F8"},
+      style_header = {border_width = 0, bg_color = "#061115"},
+      style_weekday = {border_width = 0, bg_color = "#061115"},
+      style_normal = {border_width = 0, bg_color = "#061115"},
+      style_focus = {border_width = 0, bg_color = "#1C252C"},
    })
 
    -- Attach calentar to clock_widget

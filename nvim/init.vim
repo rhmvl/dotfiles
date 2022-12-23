@@ -46,13 +46,14 @@ highlight comment cterm=italic gui=italic
 
 
 call plug#begin()
-    Plug 'folke/tokyonight.nvim', { 'branch': 'main' } " colorscheme
-    Plug 'bling/vim-airline' " bottom status bar
+    Plug 'NightCS/night.nvim', { 'as': 'night' }
+    Plug 'nvim-lualine/lualine.nvim' " Status bar
     Plug 'Yggdroot/indentLine' " line indentation visualization
     Plug 'scrooloose/nerdtree' " side directory viewer
 call plug#end()
 
 " set colorscheme
+colorscheme night
 
 " --------- bling/vim-airline settings -------------
 " always show statusbar
@@ -68,3 +69,10 @@ let g:airline#extension#tabline#enabled=1
 let g:indentLine_showFirstLevelIndent=1
 let g:indentLine_setColors=0
 
+lua << END
+require('lualine').setup {
+    options = {
+    theme = 'night-nvim',
+  },
+}
+END

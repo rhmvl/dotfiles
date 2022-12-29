@@ -74,7 +74,7 @@ local reboot = build_button(ICON_DIR .. "restart.png", "Restart", reboot_command
 
 local suspend = build_button(ICON_DIR .. "sleep.png", "Sleep", suspend_command)
 
-local exit = build_button(ICON_DIR .. "logout.png", "Logout", awesome.quit)
+local exit = build_button(ICON_DIR .. "logout.png", "Logout", function() awesome.quit() end)
 
 local lock = build_button(ICON_DIR .. "lock.png", "Lock", lock_command)
 

@@ -26,7 +26,8 @@ network_interfaces = {
 local run_on_start_up = {
    "picom",
    "redshift",
-   "unclutter"
+   "unclutter",
+   -- "mpv --fullscreen --no-input-default-bindings --no-config --on-all-workspaces " .. gears.filesystem.get_configuration_dir() .. "wallpaper/boot.mp4"
 }
 
 -- Import theme

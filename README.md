@@ -16,7 +16,7 @@ Here are some details about my setup:
 # Installing
 ```shell
 # Clone the repository
-$ git clone https://github.com/xgalatic/dotfiles
+$ git clone https://github.com/rhmvl/dotfiles
 $ cd dotfiles
 $ sudo chmod +x ./install
 $ ./install
@@ -24,7 +24,7 @@ $ ./install
 
 One liner
 ```shell
-$ git clone https://github.com/xgalatic/dotfiles && cd dotfiles && sudo chmod +x ./install && ./install
+$ git clone https://github.com/rhmvl/dotfiles && cd dotfiles && sudo chmod +x ./install && ./install
 ```
 
 # Keybinds

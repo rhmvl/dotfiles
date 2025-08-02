@@ -1,0 +1,40 @@
+#!/bin/bash
+
+# Exit on error
+set -e
+
+echo "Installing Hyprland and related dependencies..."
+
+# Main dependencies
+main_packages=(
+  hyprland
+  alacritty
+  hyprshot
+  rofi
+  hyprpaper
+  waybar
+  pcmanfm
+  dunst
+  pulseaudio
+)
+
+# Optional packages
+optional_packages=(
+  playerctl
+  brightnessctl
+  wireplumber  # wpctl is part of wireplumber
+)
+
+# Update system and install packages
+echo "Updating system..."
+sudo pacman -Syu --noconfirm
+
+echo "Installing main packages..."
+sudo pacman -S --needed --noconfirm "${main_packages[@]}"
+
+echo "Installing optional packages..."
+sudo pacman -S --needed --noconfirm "${optional_packages[@]}"
+
+echo "Done!"
+echo "You may need to log out and select Hyprland from your display manager."
+

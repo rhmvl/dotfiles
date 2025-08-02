@@ -1,0 +1,98 @@
+{
+  "layer": "top", "position": "top",
+  "modules-left": ["custom/launcher", "cpu", "memory", "network", "tray" ],
+  "modules-center": [  "hyprland/workspaces"],
+  "modules-right": ["backlight","pulseaudio","clock", "battery", "custom/power"],
+  "reload_style_on_change":true,
+
+  "custom/logo": {
+    "format": " ",
+    "tooltip": false
+  },
+
+  "cpu": {
+    "interval": 5,
+    "format": " {usage}%",
+    "max-length": 10
+  },
+
+  "memory": {
+    "interval": 15,
+    "format": " {}%",
+    "max-length": 10
+  },
+
+  "network": {
+		// "interface": "wlp2*", // (Optional) To force the use of this interface
+		"format-wifi": "  ",
+		"format-ethernet": "  ",
+		"tooltip-format": "{essid} ({signalStrength}%)",
+		"format-linked": "{ifname} (No IP) ",
+		"format-disconnected": " ⚠ ",
+		"format-alt": "{essid}"
+	},
+
+  "tray":{
+		"icon-size":18,
+		"spacing": 10
+	},
+
+  "battery": {
+    "interval": 10,
+    "states": {
+      "good": 95,
+      "warning": 50,
+      "critical": 30
+    },
+    "format": "{icon}  {capacity}%",
+    "format-charging": " {capacity}%",
+    "format-plugged": " {capacity}%",
+    "format-alt": "{time} {icon}",
+    "format-icons": ["", "", "", "", ""]
+  },
+
+  "pulseaudio": {
+		"tooltip-format": "Scroll to change the value",
+		"scroll-step": 5,
+		"format": "{icon} {volume}%",
+		"format-muted": "{icon} {volume}%",
+		"on-click":"pactl set-sink-mute @DEFAULT_SINK@ toggle",
+		"format-icons": {
+			"default": ["", "", ""]
+		}
+	},
+
+  "clock": {
+    "format": "{:%I:%M %p}",
+    "tooltip-format": " {:%A, %B, %d, %Y (%R)}"
+  },
+
+  "backlight": {
+		"tooltip-format": "Scroll to change the value",
+		"format": " {}%",
+		"interval":1,
+		"on-scroll-up": "light -A 5",
+		"on-scroll-down": "light -U 5"
+	},
+
+  "hyprland/workspaces": {
+    "format": "{icon}",
+	  "on-scroll-up": "hyprctl dispatch workspace e+1",
+	  "on-scroll-down": "hyprctl dispatch workspace e-1",
+	  "on-click": "activate"
+  },
+
+  "custom/launcher":{
+    "format": " ",
+    "tooltip-format": "Application",
+    "on-click": "rofi -show drun",
+    "on-click-right": "killall rofi"
+  },
+
+  "custom/power":{
+    "format": "  ",
+    "tooltip-format": "Power Menu",
+    "on-click": "bash ~/.config/rofi/leave.sh"
+  }
+}
+

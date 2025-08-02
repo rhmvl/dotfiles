@@ -1,0 +1,55 @@
+[colors.primary]
+background = "#061115"   # Soft charcoal navy
+foreground = "#D9D7D6"   # Soft cyan-white
+
+[colors.normal]
+black   = "#1E2228"      # Deep gray
+red     = "#BE576E"      # Dusky pink
+green   = "#3EBEB0"      # Muted teal
+yellow  = "#BFA36E"      # Warm yellow
+blue    = "#5B7FAF"      # Soft blue
+magenta = "#8E70A1"      # Dusty violet
+cyan    = "#3EBEB0"      # Muted teal (again)
+white   = "#AFCBD8"      # Soft foreground
+
+[colors.bright]
+black   = "#282F36"      # Frame gray
+red     = "#D1758F"      # Bright dusky pink
+green   = "#5FD8C9"      # Bright teal
+yellow  = "#D4C48E"      # Bright warm yellow
+blue    = "#7A9FDE"      # Bright soft blue
+magenta = "#A58BC6"      # Bright violet
+cyan    = "#5FD8C9"      # Bright teal
+white   = "#DDE6EB"      # Bright white
+
+[colors.cursor]
+cursor = "#AFCBD8"
+text = "CellForeground"
+
+[cursor]
+style = "Underline"
+vi_mode_style = "Underline"
+
+[env]
+TERM = "xterm-256color"
+
+[font]
+size = 9
+
+[font.normal]
+family = "JetBrains Mono"
+
+[window]
+opacity = 0.9
+dynamic_padding = true
+
+[window.padding]
+x = 5
+y = 5
+
+[general]
+live_config_reload = true
+
+[terminal]
+shell = "/bin/zsh"
+

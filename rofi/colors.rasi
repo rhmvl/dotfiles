@@ -1,0 +1,30 @@
+* {
+    black:       #0F111A;
+    red:         #FF3CAC;
+    green:       #00FFD2;
+    yellow:      #FFD85B;
+    blue:        #3B9CFF;
+    magenta:     #A86EDB;
+    cyan:        #00FFD2;
+    white:       #C8D6E5;
+
+    bright-black:    #1A1C22;
+    bright-red:      #FF6FAE;
+    bright-green:    #7CFFD9;
+    bright-yellow:   #FFE28A;
+    bright-blue:     #6FBFFF;
+    bright-magenta:  #C2A2EB;
+    bright-cyan:     #7AFFF1;
+    bright-white:    #E8F1FB;
+
+    fg:              #C8D6E5;
+    bg:              #0F111A;
+
+    selected-bg:     #3B9CFF;
+    selected-fg:     #0F111A;
+
+    win-bg:          #0F111Acc;    /* semi-transparent dark */
+    highlight-bg:    #3B9CFF88;    /* electric blue with alpha */
+    urgent:          #FFD85B55;    /* yellow with alpha */
+}
+

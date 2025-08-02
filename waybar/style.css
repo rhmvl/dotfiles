@@ -1,0 +1,130 @@
+* {
+    border: none;
+    font-size: 15px;
+    font-family: "JetBrainsMono Nerd Font";
+    min-height: 10px;
+    transition: all 0.2s ease-in-out;
+}
+
+window#waybar {
+    background: transparent;
+}
+
+/* ========== LAUNCHER ========== */
+#custom-launcher {
+    margin-top: 4px;
+    font-size: 24px;
+    margin-left: 6px;
+    padding-left: 8px;
+    padding-right: 8px;
+    background: #0F111A;
+    color: #C8D6E5;
+    border: 2px solid #00FFD2;
+    border-right: none;
+    border-radius: 10px 0 0 10px;
+}
+
+/* ========== MODULES ========== */
+#cpu, #memory, #network, #backlight, #pulseaudio, #clock, #battery, #custom-power {
+    margin-top: 4px;
+    padding-left: 8px;
+    padding-right: 8px;
+    background: #0F111A;
+    color: #C8D6E5;
+    border: 2px solid #3B9CFF;
+}
+
+#cpu, #memory, #pulseaudio, #clock, #battery {
+  border-right: none;
+  border-left: none;
+}
+
+#backlight {
+  border-right: none;
+    border-radius: 10px 0 0 10px;
+}
+
+#network {
+  border-left: none;
+  border-radius: 0 10px 10px 0;
+}
+
+#custom-power {
+    font-size: 20px;
+    margin-right: 6px;
+    border-left: none;
+    border-radius: 0 10px 10px 0;
+}
+
+/* ========== WORKSPACES ========== */
+#workspaces {
+    margin-top: 4px;
+    color: #C8D6E5;
+}
+
+#workspaces button {
+    color: #C8D6E5;
+    background: #0F111A;
+    border-top: 2px solid #0F111A;
+    border-bottom: 2px solid #0F111A;
+    font-size: 16px;
+    border-radius: 0;
+    transition: all 0.2s ease-in-out;
+}
+
+#workspaces button.active {
+    border-top: 2px solid #00FFD2;
+    background: #1A1C22;
+    border-bottom: 2px solid #00FFD2;
+}
+
+/* ========== BATTERY STATES ========== */
+#battery.charging, #battery.plugged {
+    border-color: #00FFD2;
+    color: #00FFD2;
+    background: #1A1C22;
+}
+
+#battery.warning:not(.charging) {
+    border-color: #FFD85B;
+    color: #FFD85B;
+}
+
+#battery.critical:not(.charging) {
+    border-color: #FF3CAC;
+    color: #FF3CAC;
+    animation-name: blink;
+    animation-duration: 0.5s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+}
+
+@keyframes blink {
+    to {
+        border-color: #FFA0C5;
+        color: #FFA0C5;
+    }
+}
+
+/* ============== HOVER EFFECT ===============*/
+#cpu:hover, #memory:hover, #network:hover, #backlight:hover,
+#pulseaudio:hover, #clock:hover, #battery:hover, #custom-power:hover {
+    background: #1A1C22;
+    color: #E8F1FB;
+    border-color: #5CAEFF;
+}
+
+#custom-launcher:hover {
+    background: #1A1C22;
+    color: #E8F1FB;
+    border-color: #33FFE5;
+    box-shadow: 0 0 6px #00FFD255;
+}
+
+#workspaces button:hover {
+    background: #1C2325;
+    color: #E8F1FB;
+    border-top: 2px solid #3B9CFF;
+    border-bottom: 2px solid #3B9CFF;
+}

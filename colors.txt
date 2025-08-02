@@ -1,0 +1,52 @@
+# === Color Palette ===
+
+# --- Core Colors ---
+Base Background        = #0F111A   # Charcoal navy, main background
+Base Foreground        = #C8D6E5   # Pale cyan, primary text
+
+# --- Accents / Highlights ---
+Accent Teal (Miku)     = #00FFD2   # Miku signature color, used for borders, cursor, highlights
+Accent Blue (Electric) = #3B9CFF   # Selection borders, active workspace, accents
+Accent Violet          = #A86EDB   # Magenta/strings, used for flair and muted functions
+Orb Yellow             = #FFD85B   # Magical orb highlight, alerts, battery warnings
+Error Pink             = #FF3CAC   # Urgency, critical battery, notifications
+
+# --- Bright Variants (for terminal, UI highlighting) ---
+Bright Teal            = #7AFFF1   # Bright cyan (unused but available)
+Bright Blue            = #6FBFFF   # Soft electric blue
+Bright Violet          = #C2A2EB   # Light magenta tone
+Bright Yellow          = #FFE28A   # Warning text/yellow glow
+Bright Pink            = #FF6FAE   # Flashy alert pink
+Bright White           = #E8F1FB   # Light text, hover text
+
+# --- Grays / Utility ---
+Frame Gray             = #1C2325   # Border/frame around widgets
+Muted Gray             = #7A7F9A   # For comments or low-priority text
+Bright Gray            = #E5E5E5   # Optional foreground variant
+Deep Gray              = #1A1C22   # Used for inactive elements (e.g., inactive border)
+Darker Black           = #0C0E0F   # Fallback for overlays and rofi backgrounds
+
+# --- Transparency Variants (for blurred overlays) ---
+Overlay Background     = #0F111Acc # Alacritty, rofi, dunst (with blur)
+Highlight Background   = #3B9CFF88 # Semi-transparent blue (rofi selection hover)
+Urgent Overlay         = #FFD85B55 # Semi-transparent orb yellow for urgent overlays
+
+# --- Terminal Compatibility ---
+ANSI Black             = #0F111A
+ANSI Red               = #FF3CAC
+ANSI Green             = #00FFD2
+ANSI Yellow            = #FFD85B
+ANSI Blue              = #3B9CFF
+ANSI Magenta           = #A86EDB
+ANSI Cyan              = #00FFD2
+ANSI White             = #C8D6E5
+
+# --- Cursor and UI Specific ---
+Cursor Color           = #00FFD2
+Cursor Text            = #C8D6E5
+
+# --- Legacy / Secondary (Optional) ---
+Alt Blue               = #6791C9   # Pre-existing config fallback
+Alt Magenta            = #BC83E3   # Pre-existing violet fallback
+Alt Yellow             = #DE8F78   # Warm pastel yellow from old config
+

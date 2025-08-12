@@ -1,11 +1,6 @@
 #!/bin/bash
-
-# Exit on error
 set -e
-
-echo "Installing Hyprland and related dependencies..."
-
-# Main dependencies
+echo "[I] Installing Hyprland and related dependencies..."
 main_packages=(
   hyprland
   alacritty
@@ -17,24 +12,40 @@ main_packages=(
   dunst
   pulseaudio
 )
-
-# Optional packages
 optional_packages=(
   playerctl
   brightnessctl
-  wireplumber  # wpctl is part of wireplumber
+  wireplumber  
 )
 
-# Update system and install packages
-echo "Updating system..."
+echo "[I] Updating system..."
 sudo pacman -Syu --noconfirm
 
-echo "Installing main packages..."
+echo "[I] Installing main packages..."
 sudo pacman -S --needed --noconfirm "${main_packages[@]}"
 
-echo "Installing optional packages..."
+echo "[I] Installing optional packages..."
 sudo pacman -S --needed --noconfirm "${optional_packages[@]}"
 
-echo "Done!"
-echo "You may need to log out and select Hyprland from your display manager."
+echo "[I] Copying dotfiles to ~/.config..."
+mkdir -p ~/.config
+
+for dir in alacritty dunst hypr rofi waybar waypaper; do
+    if [ -d "$dir" ]; then
+        echo "[I] Installing $dir/"
+        cp -r "$dir" ~/.config/
+    else
+        echo "[W] Missing $dir/, skipping..."
+    fi
+done
+
+if [ -f "starship.toml" ]; then
+    cp starship.toml ~/.config/
+    echo "[I] Installed starship.toml"
+else
+    echo "[W] starship.toml not found, skipping..."
+fi
+
+echo "[I] Installation complete."
+echo "[I] You may need to log out and select Hyprland from your display manager."
 

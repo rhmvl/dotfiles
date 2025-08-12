@@ -39,6 +39,18 @@ window#waybar {
   border-left: none;
 }
 
+#tray {
+	margin-top: 4px;
+  font-size: 24px;
+  margin-left: 6px;
+  padding-left: 8px;
+  padding-right: 8px;
+  background: #0F111A;
+  color: #C8D6E5;
+  border: 2px solid #00FFD2;
+  border-radius: 10px;
+}
+
 #backlight {
   border-right: none;
     border-radius: 10px 0 0 10px;
@@ -128,3 +140,4 @@ window#waybar {
     border-top: 2px solid #3B9CFF;
     border-bottom: 2px solid #3B9CFF;
 }
+
